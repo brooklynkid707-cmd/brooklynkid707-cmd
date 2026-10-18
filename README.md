@@ -11,6 +11,17 @@ I build the things SOC teams run on — SIEM detections, packet-level investigat
 
 ---
 
+
+## What the projects actually produce
+
+| SIEM From Scratch — live dashboard | Splunk lab — 25/25 detections firing |
+|---|---|
+| ![minisiem dashboard](assets/siem_dashboard.png) | ![splunk harness](assets/splunk_detections.png) |
+
+![wireshark report](assets/wireshark_report.png)
+
+---
+
 ## Portfolio
 
 | Project | What it proves | Stack |

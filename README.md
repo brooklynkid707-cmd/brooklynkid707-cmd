@@ -1,6 +1,6 @@
 # JP Scirica
 
-**SOC Analyst · Detection Engineering · Incident Response**
+**SOC Analyst · Detection Engineering · AI Security · Incident Response**
 CompTIA Security+ | UT Austin McCombs Cybersecurity Postgraduate (4.13 GPA) | Houston, TX
 
 I build the things SOC teams run on — SIEM detections, packet-level investigations, IAM access reviews and incident-response playbooks — and I publish them as **runnable, tested code with synthetic data**, not screenshots.
@@ -32,7 +32,22 @@ I build the things SOC teams run on — SIEM detections, packet-level investigat
 | [**wireshark-network-forensics**](https://github.com/brooklynkid707-cmd/wireshark-network-forensics) | Zero-dependency PCAP parser + detectors for port scans, ARP spoofing, DNS tunneling (entropy), C2 beaconing (interval regularity), cleartext creds, ICMP exfil, SMB lateral movement. Wireshark filters, coloring rules, tshark recipes and analyst case notes. 27 tests. | Python, Wireshark, tshark |
 | [**soc-analyst-toolkit**](https://github.com/brooklynkid707-cmd/soc-analyst-toolkit) | Tier 1/2 daily tooling: alert triage & incident grouping, phishing header analysis (SPF/DKIM/DMARC, lookalike domains), IOC extraction with defang/refang, incident timelines, report generator, 8 NIST 800-61 playbooks. 80 tests. | Python, email/STIX |
 | [**iam-access-governance-toolkit**](https://github.com/brooklynkid707-cmd/iam-access-governance-toolkit) | Access-review automation: least-privilege & privilege-creep analysis, dormant/orphaned accounts, MFA gaps, separation-of-duties conflicts, role mining, risk scoring, campaign packets, RBAC policy simulator. 43 tests. | Python, YAML policy |
-| [**ai-assisted-enumeration**](https://github.com/brooklynkid707-cmd/ai-assisted-enumeration) | Authorized attack-surface triage: parses Nmap/DNS/HTTP/TLS/cloud artifacts, scores with a rules engine or optional LLM backend, builds ATT&CK attack paths, enforces a scope allowlist and screens banners for prompt injection. 59 tests. | Python, Nmap XML, LLM API |
+
+
+## AI security — defensive and offensive (authorized)
+
+| Project | What it proves | Stack |
+|---|---|---|
+| [**llm-security-testing-harness**](https://github.com/brooklynkid707-cmd/llm-security-testing-harness) | Red-team your own LLM apps: 61 benign, measurable prompt-injection / jailbreak / data-leak cases mapped to OWASP LLM Top 10 and MITRE ATLAS, deterministic judges, per-category attack-success-rate reports (vulnerable mock 100% → hardened 0%). Offline or any OpenAI-compatible API. 66 tests. | Python, YAML corpus, OWASP LLM, ATLAS |
+| [**secure-ai-gateway**](https://github.com/brooklynkid707-cmd/secure-ai-gateway) | Working Secure AI Gateway: role-based API keys, rate limits/budgets, YAML policy, 14-detector DLP with reversible redaction, prompt-injection + indirect-injection screening, canary output guard, hash-chained audit log. 89/89 attack-corpus selftest, 133 tests. | Flask, Python |
+| [**ai-soc-copilot**](https://github.com/brooklynkid707-cmd/ai-soc-copilot) | LLM-assisted triage done safely: BM25 retrieval over playbooks/ATT&CK, grounded JSON output, hallucinated-citation rejection, injection screening on alert fields, human approval queue, measured eval (severity acc 0.92 rules / 0.99 LLM-mock, technique top-1 0.97). 47 tests. | Python, BM25, eval harness |
+| [**ml-threat-detection**](https://github.com/brooklynkid707-cmd/ml-threat-detection) | Four ML detectors with honest evaluation and plain-English explanations: auth anomaly (AUC 0.999), DGA classifier (AUC 0.996), C2 beaconing (4/4, 0 FP), process anomaly. Documents where rules beat ML. 30 tests. | scikit-learn, pandas |
+| [**ai-adversary-emulation-planner**](https://github.com/brooklynkid707-cmd/ai-adversary-emulation-planner) | Threat-informed purple-team planner: profile → phased ATT&CK plan with Atomic Red Team refs, expected telemetry, detection checklist, ROE; coverage gaps vs deployed rules + Navigator layer; optional LLM narrator that can only cite in-plan techniques. Planning only. 41 tests. | Python, ATT&CK, Navigator |
+| [**ai-assisted-enumeration**](https://github.com/brooklynkid707-cmd/ai-assisted-enumeration) | Attack-surface triage from Nmap/DNS/HTTP/TLS artifacts with a rules engine or optional LLM, scope enforcement and prompt-injection screening of banners. 59 tests. | Python |
+
+**How I keep AI in check:** every LLM path is optional and offline by default, outputs are schema-validated, citations must exist in retrieved evidence, attacker-controlled text (banners, command lines, documents) is screened before it reaches a model, and nothing gets closed without a human.
+
+---
 
 ### Earlier labs
 - [**Monitor-in-Motion**](https://github.com/brooklynkid707-cmd/Monitor-in-Motion) — Windows Server 2022 → Azure Arc → AMA/DCR → Log Analytics → Sentinel, with KQL investigations of 4624/4625.
@@ -50,6 +65,6 @@ I build the things SOC teams run on — SIEM detections, packet-level investigat
 
 ## Skills
 
-`Splunk / SPL` `Microsoft Sentinel / KQL` `Sigma` `Wireshark / tshark` `Python` `PowerShell` `Bash` `Azure` `Bicep` `Active Directory / Entra ID` `MITRE ATT&CK` `NIST CSF / 800-61` `ISO 27001` `PCI DSS` `Nmap` `Burp Suite` `Kali Linux`
+`Splunk / SPL` `Microsoft Sentinel / KQL` `Sigma` `OWASP LLM Top 10` `MITRE ATLAS` `scikit-learn` `Wireshark / tshark` `Python` `PowerShell` `Bash` `Azure` `Bicep` `Active Directory / Entra ID` `MITRE ATT&CK` `NIST CSF / 800-61` `ISO 27001` `PCI DSS` `Nmap` `Burp Suite` `Kali Linux`
 
 📫 **Let's talk:** [linkedin.com/in/jp-scirica](https://www.linkedin.com/in/jp-scirica)

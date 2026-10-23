@@ -12,6 +12,21 @@ I build the things SOC teams run on — SIEM detections, packet-level investigat
 ---
 
 
+## Flagship: Purple Team Pipeline
+
+[**purple-team-pipeline**](https://github.com/brooklynkid707-cmd/purple-team-pipeline) — the capstone that wires the whole portfolio into one measured loop. One command takes a threat profile (ransomware affiliate vs. a hospital network), builds an ATT&CK-mapped emulation plan, generates synthetic telemetry that plants all 30 techniques, runs it through **three detection stacks at once** (mini-SIEM Sigma + correlation, the Splunk app's SPL evaluator, the Sentinel KQL simulator), triages every alert with the AI SOC Copilot, and scores the result against hidden ground truth.
+
+| Metric (first run) | Result |
+|---|---|
+| Technique coverage | **43% (13/30)** — persistence, defense-evasion, C2 at 100%; discovery, collection, impact at 0% |
+| Mean time-to-detect | 4.6 s |
+| False positives (benign-only baseline) | 6 |
+| Caught by all three stacks | 3 techniques |
+
+Outputs: Markdown + HTML report, ATT&CK Navigator layer, SVG attack timeline, NIST 800-61 incident report. Re-run after tuning a rule and the scoreboard shows whether it helped. 38 tests, deterministic, synthetic data only, no exploit code.
+
+---
+
 ## What the projects actually produce
 
 | SIEM From Scratch — live dashboard | Splunk lab — 25/25 detections firing |

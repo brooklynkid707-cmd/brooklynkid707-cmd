@@ -1,9 +1,9 @@
 # JP Scirica
 
-**SOC Analyst · Detection Engineering · AI Security · Incident Response**
+**SOC Analyst · Incident Response · DFIR · Threat Hunting · Detection Engineering · AI Security**
 CompTIA Security+ | UT Austin McCombs Cybersecurity Postgraduate (4.13 GPA) | Houston, TX
 
-I build the things SOC teams run on — SIEM detections, packet-level investigations, IAM access reviews and incident-response playbooks — and I publish them as **runnable, tested code with synthetic data**, not screenshots.
+I build the things SOC teams run on — SIEM detections, end-to-end incident investigations, endpoint forensics, malware triage, threat hunts and IAM access reviews — and I publish them as **runnable, tested code with synthetic data**, not screenshots.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-jp--scirica-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jp-scirica)
 [![Security+](https://img.shields.io/badge/CompTIA-Security%2B-E2231A?logo=comptia&logoColor=white)](#)
@@ -24,6 +24,19 @@ I build the things SOC teams run on — SIEM detections, packet-level investigat
 | Caught by all three stacks | 3 techniques |
 
 Outputs: Markdown + HTML report, ATT&CK Navigator layer, SVG attack timeline, NIST 800-61 incident report. Re-run after tuning a rule and the scoreboard shows whether it helped. 38 tests, deterministic, synthetic data only, no exploit code.
+
+---
+
+## Tier 2 SOC: investigation, forensics, malware triage and hunting
+
+What happens after an alert is escalated: scoping, root cause, forensics and a report someone can act on.
+
+| Project | What it proves | Stack |
+|---|---|---|
+| [**tier2-incident-casebook**](https://github.com/brooklynkid707-cmd/tier2-incident-casebook) | Three end-to-end investigations from a partly wrong Tier 1 ticket to scoped root cause, containment and lessons learned: M365 business email compromise via AiTM phishing, a leaked AWS access key (exact S3 bytes exfiltrated, rogue IAM admin, crypto-mining), and a Linux web-shell compromise with a lateral-movement attempt proven failed. Every answer is computed from raw logs and scored against planted ground truth (100% precision/recall); new KQL / Sigma / Athena / auditd detections per case. 139 tests. | Python, Entra/UAL, CloudTrail, auditd, KQL, Sigma |
+| [**windows-dfir-triage**](https://github.com/brooklynkid707-cmd/windows-dfir-triage) | Windows endpoint forensics from KAPE / Eric Zimmerman exports + Sysmon: ProcessGuid process trees, evidence-of-execution scoring (Prefetch, Amcache, Shimcache caveats), persistence, Kerberoasting, LSASS access, lateral-movement graph, timestomping, SHA-256 evidence manifest with chain of custody. 22/22 planted findings, 0/13 benign look-alikes flagged. 91 tests. | Python, EZ Tools formats, Sysmon, Sigma |
+| [**malware-triage-lab**](https://github.com/brooklynkid707-cmd/malware-triage-lab) | Static triage without executing anything: pure-Python PE parser + imphash, entropy/packing, capability → ATT&CK mapping, layered deobfuscation of PowerShell / VBA / JScript / HTA, Office macro detection, 15 tested YARA rules, explainable verdicts with escalate-to-RE criteria and generated KQL/SPL hunts. Inert synthetic samples. 79 tests. | Python, YARA, PE format |
+| [**threat-hunting-program**](https://github.com/brooklynkid707-cmd/threat-hunting-program) | Eight PEAK-framework hunts on a 14-day synthetic enterprise (65 hosts, 144k events): jitter-tolerant beacon statistics, fleet stacking, Kerberoasting, LOLBins, DNS tunneling, rare persistence, anomalous logons, staging + exfil. Every hunt ranks the planted activity #1; 6 graduated to tested Sigma detections, 1 closed as a data gap. 90 tests. | Python, KQL, SPL, Sigma |
 
 ---
 
@@ -80,6 +93,6 @@ Outputs: Markdown + HTML report, ATT&CK Navigator layer, SVG attack timeline, NI
 
 ## Skills
 
-`Splunk / SPL` `Microsoft Sentinel / KQL` `Sigma` `OWASP LLM Top 10` `MITRE ATLAS` `scikit-learn` `Wireshark / tshark` `Python` `PowerShell` `Bash` `Azure` `Bicep` `Active Directory / Entra ID` `MITRE ATT&CK` `NIST CSF / 800-61` `ISO 27001` `PCI DSS` `Nmap` `Burp Suite` `Kali Linux`
+`Incident Response` `DFIR` `KAPE / EZ Tools` `Sysmon` `YARA` `Threat Hunting (PEAK)` `AWS CloudTrail` `Microsoft 365` `Splunk / SPL` `Microsoft Sentinel / KQL` `Sigma` `OWASP LLM Top 10` `MITRE ATLAS` `scikit-learn` `Wireshark / tshark` `Python` `PowerShell` `Bash` `Azure` `Bicep` `Active Directory / Entra ID` `MITRE ATT&CK` `NIST CSF / 800-61` `ISO 27001` `PCI DSS` `Nmap` `Burp Suite` `Kali Linux`
 
 📫 **Let's talk:** [linkedin.com/in/jp-scirica](https://www.linkedin.com/in/jp-scirica)
